@@ -1,0 +1,441 @@
+/* ===== СБРОС И БАЗА ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    position: relative;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-image: url('zebra.jpg');
+    background-size: 800px auto;
+    background-repeat: repeat;
+    background-position: top left;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.65);
+    pointer-events: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+}
+
+/* ===== СТЕКЛО НА СЕКЦИЯХ ===== */
+.hero,
+.features,
+.flavors,
+.how,
+.cta,
+.footer {
+    position: relative;
+    z-index: 1;
+    /* Никакого фона и blur — секции просто поверх зебры */
+}
+
+.feature,
+.flavor {
+    background: rgba(35, 35, 35, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+}
+
+.features::before,
+.flavors::before,
+.how::before,
+.cta::before,
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.15) 50%,
+        transparent 100%
+    );
+}
+
+/* ===== КНОПКА ===== */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: rgba(35, 35, 35, 0.75);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+
+.btn:hover {
+    background: #ffffff;
+    color: #0a0a0a;
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+}
+
+/* ===== HEADER ===== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+}
+
+.nav {
+    display: flex;
+    gap: 32px;
+}
+
+.nav a {
+    font-size: 0.95rem;
+    color: #888;
+    transition: color 0.2s;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.nav a:hover {
+    color: #ffffff;
+}
+
+/* ===== HERO ===== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 24px;
+}
+
+.hero-title {
+    font-size: clamp(4rem, 12vw, 10rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 24px;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #cccccc;
+    max-width: 500px;
+    margin-bottom: 48px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* ===== FEATURES ===== */
+.features {
+    padding: 120px 48px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature {
+    padding: 32px 24px;
+    background: rgba(35, 35, 35, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.feature-number {
+    font-size: 0.85rem;
+    color: #666;
+    letter-spacing: 0.15em;
+    margin-bottom: 24px;
+}
+
+.feature:hover {
+    background: #ffffff;
+    color: #0a0a0a;
+    transform: translateY(-4px);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+}
+
+.feature:hover h3,
+.feature:hover p,
+.feature:hover .feature-number {
+    color: #0a0a0a;
+}
+
+.feature h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.feature p {
+    color: #888;
+    font-size: 1rem;
+}
+
+/* ===== FLAVORS ===== */
+.flavors {
+    padding: 120px 48px;
+}
+
+.flavors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.flavor {
+    aspect-ratio: 1 / 1;
+    background: rgba(35, 35, 35, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.flavor:hover {
+    background: #ffffff;
+    color: #0a0a0a;
+    transform: translateY(-4px);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+}
+
+.flavor-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.flavor-tag {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #666;
+}
+
+.flavor:hover .flavor-tag {
+    color: #0a0a0a;
+}
+
+/* ===== HOW IT WORKS ===== */
+.how {
+    padding: 120px 48px;
+}
+
+.how-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.step {
+    padding: 32px 24px;
+    background: rgba(35, 35, 35, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.step:hover {
+    background: #ffffff;
+    color: #0a0a0a;
+    transform: translateY(-4px);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+}
+
+.step:hover .step-number,
+.step:hover p {
+    color: #0a0a0a;
+}
+
+.step p {
+    color: #888;
+    font-size: 1.1rem;
+}
+
+/* ===== CTA ===== */
+.cta {
+    padding: 160px 48px;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+}
+
+.cta-subtitle {
+    color: #888;
+    font-size: 1.15rem;
+    margin-bottom: 48px;
+}
+
+.cta-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.cta-form input {
+    padding: 16px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.cta-form input:focus {
+    outline: none;
+    border-color: #ffffff;
+}
+
+.cta-form input::placeholder {
+    color: #666;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    position: relative;
+    z-index: 1;
+    padding: 48px;
+    text-align: center;
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+}
+
+.footer-note {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.footer-copy {
+    color: #444;
+    font-size: 0.8rem;
+}
+
+/* ===== АНИМАЦИЯ КНОПКИ ===== */
+@keyframes pulseInside {
+    0% {
+        box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    50% {
+        box-shadow: inset 0 0 50px 25px rgba(0, 0, 0, 0.55);
+    }
+    100% {
+        box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
